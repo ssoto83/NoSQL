@@ -1,34 +1,32 @@
-const { Schema, Types } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
+      default: () => new Schema.Types.ObjectId(), // Set default value to a new ObjectId
     },
     reactionBody: {
       type: String,
       required: true,
-      maxlength: 50,
-      minlength: 4,
-      default: "Unnamed reaction",
+      maxlength: 280, // Maximum of 280 characters
     },
     username: {
-      type: Number,
-      required: true,
-      default: () => Math.floor(Math.random() * (100 - 70 + 1) + 70),
+      type: String,
+      required: true, // Required field
     },
     createdAt: {
       type: Date,
-      default: Date.now,
+      default: Date.now, // Default value is the current timestamp
+      get: (timestamp) => new Date(timestamp).toLocaleString(), // Format the timestamp on query
     },
   },
   {
     toJSON: {
-      getters: true,
+      getters: true, // Include getters in JSON output
     },
-    id: false,
+    id: false, // Prevent Mongoose from adding an additional `id` field
   }
 );
 
-module.exports = reactionSchema;
+module.exports = reactionSchema; // Export the reactionSchema for use in the Thought model
