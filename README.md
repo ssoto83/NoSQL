@@ -49,7 +49,7 @@ https://drive.google.com/file/d/1aKXUbbfsnZQ5o3FgsHjPpBuqLxhLJ93R/view?usp=shari
 
 ## Application screenshot  
 
-![User-route screenshot test from Insomnia](../NoSQL/images/users-route.png)    
+![User-route screenshot test from Insomnia](../NoSQL/Develop/images/users-route.png)    
 ![Thought-route screenshot test from Insomnia](../NoSQL/images/thoughts-route.png)  
 ![Friends screenshot test from Insomnia](../NoSQL/images/friend-added.png)  
 ![Reactions screenshot test from Insomnia](../NoSQL/images/delete-reaction.png)    
