@@ -6,6 +6,7 @@ const thoughtRoute = require('./api/thought-route');  // Import thought route
 router.use('/users', userRoute);
 router.use('/thoughts', thoughtRoute);
 
+
 // Handle wrong routes
 router.use((req, res) => res.send('Wrong route!'));
 

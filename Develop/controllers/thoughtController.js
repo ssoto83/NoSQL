@@ -59,14 +59,14 @@ module.exports = {
         const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
 
         if (!thought) {
-            res.status(404).json({ message: 'No thought with that ID' });
+            return res.status(404).json({ message: 'No thought with that ID' });
         }
 
-        await User.deleteMany({ _id: { $in: thought.users } });
-        res.json({ message: 'Thought and users deleted!' });
-    } catch(err) {
-        res.status(500).json(err);
-    }
+        res.json({ message: "Thought successfully deleted" });
+      } catch (err) {
+          console.error(err);
+          res.status(500).json(err);
+      }
 },
  
      // Add an reaction to a thought
@@ -75,7 +75,7 @@ module.exports = {
     console.log(req.body);
 
     try {
-      const thought = await thought.findOneAndUpdate(
+      const thought = await Thought.findByIdAndUpdate(
         { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
@@ -95,9 +95,9 @@ module.exports = {
   // Remove reaction from a thought
   async removeReaction(req, res) {
     try {
-      const thought = await thought.findOneAndUpdate(
+      const thought = await Thought.findById(
         { _id: req.params.thoughtId },
-        { $pull: { reaction: { reactionId: req.params.reactionId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
 
@@ -112,43 +112,4 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Add a friend
-  async addFriend(req, res) {   
-    try {
-      const { userId, friendId } = req.params;
-      const user = await User.findByIdAndUpdate(
-          userId,
-          { $addToSet: { friends: friendId } }, // Assuming users have a friends field
-          { new: true }
-      );
-
-      if (!user) {
-          return res.status(404).json({ message: 'No user found with that ID' });
-      }
-
-      res.status(200).json({ message: 'Friend added successfully' });
-  } catch (error) {
-      res.status(500).json({ error: error.message });
-  }
-},
-
-// Remove a friend
-async removeFriend(req, res) {
-  try {
-      const { userId, friendId } = req.params;
-      const user = await User.findByIdAndUpdate(
-          userId,
-          { $pull: { friends: friendId } }, // Assuming users have a friends field
-          { new: true }
-      );
-
-      if (!user) {
-          return res.status(404).json({ message: 'No user found with that ID' });
-      }
-
-      res.status(200).json({ message: 'Friend removed successfully' });
-  } catch (error) {
-      res.status(500).json({ error: error.message });
-  }
-},
 };

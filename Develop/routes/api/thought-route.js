@@ -6,13 +6,11 @@ const {
   updateThought,
   deleteThought,
   addReaction,
-  removeReaction,
-  addFriend,
-  removeFriend
+  removeReaction
 } = require('../../controllers/thoughtController');
 
 // Check for undefined functions
-console.log({ getThoughts, getSingleThought, createThought, updateThought, deleteThought, addReaction, removeReaction, addFriend, removeFriend });
+console.log({ getThoughts, getSingleThought, createThought, updateThought, deleteThought, addReaction, removeReaction });
 
 // /api/Thoughts
 router.route('/').get(getThoughts).post(createThought);
@@ -26,13 +24,8 @@ router
 
 // /api/thoughts/:thoughtId/reactions
 router.route('/:thoughtId/reactions')
-  .post(addReaction) // Pos to create a reaction
+  .post(addReaction) // Post to create a reaction
   .delete(removeReaction); // Delete to pull and remove a reaction by its reactionId
-
-// /api/users/:userId/friends/:friendId
-router.route('/users/:userId/friends/:friendId')
-  //.post(addFriend) // Post to add a new friend to a user's friend list
-  //.delete(removeFriend); // Delete to remove a friend from a user's friend list
 
 module.exports = router;
 
