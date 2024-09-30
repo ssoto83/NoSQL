@@ -45,14 +45,14 @@ https://github.com/ssoto83/NoSQL.git
 
 ## Walkthrough video link
 
-https://drive.google.com/file/d/1aKXUbbfsnZQ5o3FgsHjPpBuqLxhLJ93R/view?usp=sharing  
+https://drive.google.com/file/d/1e9YCA-bHJk2fc7zlBff5BddWaQj_GFH_/view?usp=sharing
 
-## Applications screenshot  
+## Application screenshots   
 
 ![User-route screenshot test from Insomnia](./Develop/assets/users-route.png)    
-![Thought-route screenshot test from Insomnia](../NoSQL/images/thoughts-route.png)  
-![Friends screenshot test from Insomnia](../NoSQL/images/friend-added.png)  
-![Reactions screenshot test from Insomnia](../NoSQL/images/delete-reaction.png)    
+![Thought-route screenshot test from Insomnia](./Develop/assets/thoughts-route.png)  
+![Friends screenshot test from Insomnia](./Develop/assets/friend-added.png)  
+![Reactions screenshot test from Insomnia](./Develop/assets/delete-reaction.png)    
 
 ## License
 This project is licensed under the MIT License.
