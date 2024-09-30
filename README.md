@@ -47,9 +47,9 @@ https://github.com/ssoto83/NoSQL.git
 
 https://drive.google.com/file/d/1aKXUbbfsnZQ5o3FgsHjPpBuqLxhLJ93R/view?usp=sharing  
 
-## Application screenshot  
+## Applications screenshot  
 
-![User-route screenshot test from Insomnia](../NoSQL/Develop/images/users-route.png)    
+![User-route screenshot test from Insomnia](./Develop/assets/users-route.png)    
 ![Thought-route screenshot test from Insomnia](../NoSQL/images/thoughts-route.png)  
 ![Friends screenshot test from Insomnia](../NoSQL/images/friend-added.png)  
 ![Reactions screenshot test from Insomnia](../NoSQL/images/delete-reaction.png)    
